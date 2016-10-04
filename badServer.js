@@ -36,6 +36,7 @@ api.http.createServer((req, res) => {
           'Set-Cookie': 'mycookie=test',
           'Content-Type': 'text/html'
         });
+
         let ip = req.connection.remoteAddress;
         res.write('<h1>Welcome</h1>Your IP: ' + ip);
         res.end('<pre>' + JSON.stringify(cookies) + '</pre>');
@@ -92,4 +93,4 @@ api.http.createServer((req, res) => {
     }
   }
 
-}).listen(80);
+}).listen(80, () => console.log('lintening at 80'));
